@@ -2,9 +2,11 @@ import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import { Toolbar, IconButton, Typography } from "@mui/material";
 import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
 import { drawerWidth } from "../../Layout/Layout";
+import { NavLink, NavLinkProps } from "react-router-dom";
 
 import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
+import UserAvatar from "./UserAvatar";
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -45,7 +47,7 @@ function Navbar({ open, handleDrawerOpen }: PropsType) {
         >
           <MenuIcon />
         </IconButton>
-        <IconButton size="large">
+        <IconButton component={NavLink} to="/" size="large">
           <HomeIcon fontSize="medium" sx={{ color: "primary.contrastText" }} />
         </IconButton>
         <Typography
@@ -57,6 +59,7 @@ function Navbar({ open, handleDrawerOpen }: PropsType) {
           Dashboard
         </Typography>
         <Typography>Welcome Ali Soliman</Typography>
+        <UserAvatar />
       </Toolbar>
     </AppBar>
   );
