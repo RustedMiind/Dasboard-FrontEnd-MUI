@@ -3,6 +3,7 @@ import { Toolbar, IconButton, Typography } from "@mui/material";
 import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
 import { drawerWidth } from "../../Layout/Layout";
 
+import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const AppBar = styled(MuiAppBar, {
@@ -38,15 +39,24 @@ function Navbar({ open, handleDrawerOpen }: PropsType) {
             ...(open && {
               opacity: 0,
               pointerEvents: "none",
-              marginRight: -4,
+              marginRight: -5,
             }),
           }}
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" noWrap component="div">
-          Navbar
+        <IconButton size="large">
+          <HomeIcon fontSize="medium" sx={{ color: "primary.contrastText" }} />
+        </IconButton>
+        <Typography
+          variant="h6"
+          noWrap
+          component="div"
+          sx={{ marginLeft: 1, flexGrow: 1 }}
+        >
+          Dashboard
         </Typography>
+        <Typography>Welcome Ali Soliman</Typography>
       </Toolbar>
     </AppBar>
   );
