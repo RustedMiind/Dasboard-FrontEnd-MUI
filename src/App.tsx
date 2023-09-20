@@ -18,14 +18,14 @@ const theme = createTheme({
   // },
   palette: {
     primary: {
-      main: "#5a6066",
+      main: "#444850",
     },
     secondary: {
       main: "#967E76",
     },
     background: {
       paper: "#f3eeeb",
-      default: "#e0d6d0",
+      default: "#CCCCCC",
     },
   },
 });
