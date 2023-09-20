@@ -13,7 +13,9 @@ import { NavLink } from "react-router-dom";
 
 export default function IconSeeMoreCard(props: PropsType) {
   return (
-    <Card sx={{ display: "inline-block", minWidth: 275, width: 400 }}>
+    <Card
+      sx={{ display: "inline-block", minWidth: 275, width: props.width || 345 }}
+    >
       <CardContent sx={{ flexDirection: "row" }}>
         <Grid container>
           <Grid item xs={2}>
@@ -70,6 +72,7 @@ type PropsType = {
     | string;
   title: string;
   value: string;
+  width?: number;
   redirect?: string;
   icon: OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
     muiName: string;

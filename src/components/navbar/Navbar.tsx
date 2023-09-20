@@ -16,14 +16,6 @@ const AppBar = styled(MuiAppBar, {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
-  ...(open && {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(["width", "margin"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  }),
 }));
 
 function Navbar({ open, handleDrawerOpen }: PropsType) {
@@ -37,19 +29,14 @@ function Navbar({ open, handleDrawerOpen }: PropsType) {
           edge="start"
           sx={{
             transition: "200ms",
-            marginRight: 2,
-            ...(open && {
-              opacity: 0,
-              pointerEvents: "none",
-              marginRight: -5,
-            }),
+            // marginRight: 2,
           }}
         >
           <MenuIcon />
         </IconButton>
-        <IconButton component={NavLink} to="/" size="large">
+        {/* <IconButton component={NavLink} to="/" size="large">
           <HomeIcon fontSize="medium" sx={{ color: "primary.contrastText" }} />
-        </IconButton>
+        </IconButton> */}
         <Typography
           variant="h6"
           noWrap

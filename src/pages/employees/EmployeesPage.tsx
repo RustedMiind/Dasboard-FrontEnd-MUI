@@ -1,5 +1,6 @@
 import { Typography, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
+import fitCardsToWidth from "../../functions/fitCardsToWidth";
 import PersonCard, {
   CardUserType,
 } from "../../components/person-card/PersonCard";
@@ -7,32 +8,20 @@ import EmployeesPlaceholder from "./components/EmployeesPlaceholder";
 
 function EmployeesPage() {
   const [users, setUsers] = useState<CardUserType[] | null>();
-  const [cardWidth, setCardWidth] = useState(getCardWidth());
+  const itemWidth = () => fitCardsToWidth().itemWidth;
+  const [cardWidth, setCardWidth] = useState(itemWidth());
   const isUsersLoaded = !!users;
   useEffect(() => {
-    const mainContainer = document.getElementById("main");
     handleCardWidth();
-    mainContainer?.addEventListener("resize", handleCardWidth);
+    window.addEventListener("resize", handleCardWidth);
     setTimeout(() => setUsers(data), 1000);
     return () => {
-      mainContainer?.removeEventListener("resize", handleCardWidth);
+      window.removeEventListener("resize", handleCardWidth);
     };
   });
-  function getCardWidth(): number {
-    const CARD_DEFAULT_WIDTH = 345;
-    const mainContainer = document.getElementById("main");
-    let fullWidth = mainContainer?.clientWidth;
-    fullWidth = typeof fullWidth === "number" ? fullWidth : CARD_DEFAULT_WIDTH;
-    const cardsPerRow = Math.floor(fullWidth / CARD_DEFAULT_WIDTH);
-    const cardWidth = Math.floor(
-      (fullWidth - cardsPerRow * 16 + 14) / cardsPerRow
-    );
-    return cardWidth;
-  }
   function handleCardWidth() {
-    setCardWidth(getCardWidth());
+    setCardWidth(itemWidth());
   }
-  const cardWidth2 = getCardWidth();
   return (
     <Stack>
       <Stack

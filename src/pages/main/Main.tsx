@@ -7,8 +7,23 @@ import RecentActorsIcon from "@mui/icons-material/RecentActors";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { useEffect, useState } from "react";
+import fitCardsToWidth from "../../functions/fitCardsToWidth";
 
 function MainPage() {
+  const itemWidth = () => fitCardsToWidth({ defaultWidth: 450 }).itemWidth;
+  const [cardWidth, setCardWidth] = useState(itemWidth());
+
+  useEffect(() => {
+    handleCardWidth();
+    window.addEventListener("resize", handleCardWidth);
+    return () => {
+      window.removeEventListener("resize", handleCardWidth);
+    };
+  });
+  function handleCardWidth() {
+    setCardWidth(itemWidth());
+  }
   return (
     <Stack>
       <Typography variant="h5" gutterBottom>
@@ -21,6 +36,7 @@ function MainPage() {
           title={"Employees"}
           value="51"
           redirect="/employees"
+          width={cardWidth}
         />
         <IconSeeMoreCard
           iconColor={colors.blue[800]}
@@ -28,6 +44,7 @@ function MainPage() {
           title={"Staff present today"}
           value="34"
           redirect="/attendance"
+          width={cardWidth}
         />
         <IconSeeMoreCard
           iconColor={colors.grey[900]}
@@ -35,6 +52,7 @@ function MainPage() {
           title={"Account"}
           value="Ali Soliman"
           redirect="/user/account"
+          width={cardWidth}
         />
         <IconSeeMoreCard
           iconColor={colors.purple[500]}
@@ -42,6 +60,7 @@ function MainPage() {
           title={"Assignments"}
           value="3"
           redirect="/assignments"
+          width={cardWidth}
         />
       </Stack>
     </Stack>

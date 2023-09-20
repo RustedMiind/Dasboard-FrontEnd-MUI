@@ -1,119 +1,67 @@
-import {
-  IconButton,
-  List,
-  Divider,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
-
-import MuiDrawer from "@mui/material/Drawer";
-import { styled, useTheme, Theme, CSSObject } from "@mui/material/styles";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import Button from "@mui/material/Button";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import {
-  drawerWidth,
-  openedMixin,
-  DrawerHeader,
-  closedMixin,
-} from "../../Layout/Layout";
 
-const Drawer = styled(MuiDrawer, {
-  shouldForwardProp: (prop) => prop !== "open",
-})(({ theme, open }) => ({
-  width: drawerWidth,
-  flexShrink: 0,
-  whiteSpace: "nowrap",
-  boxSizing: "border-box",
-  ...(open && {
-    ...openedMixin(theme),
-    "& .MuiDrawer-paper": openedMixin(theme),
-  }),
-  ...(!open && {
-    ...closedMixin(theme),
-    "& .MuiDrawer-paper": closedMixin(theme),
-  }),
-}));
+import Routes from "../../statics/routes";
+import { NavLink } from "react-router-dom";
+type Anchor = "left";
 
-function Sidebar({ open, handleDrawerClose }: PropsType) {
-  const theme = useTheme();
-  return (
-    <Drawer
-      variant="permanent"
-      open={open}
-      PaperProps={{
-        sx: {
-          backgroundColor: "primary.main",
-          color: "primary.contrastText",
-          "*": {
-            color: "primary.contrastText",
-          },
-        },
-      }}
+export default function Sidebar({ handleDrawerClose, open }: PropsType) {
+  const toggleDrawer =
+    (anchor: Anchor, open: boolean) =>
+    (event: React.KeyboardEvent | React.MouseEvent) => {
+      if (
+        event.type === "keydown" &&
+        ((event as React.KeyboardEvent).key === "Tab" ||
+          (event as React.KeyboardEvent).key === "Shift")
+      ) {
+        return;
+      }
+      // setState({ ...state, [anchor]: open });
+    };
+
+  const list = (anchor: Anchor) => (
+    <Box
+      sx={{ width: 250 }}
+      role="presentation"
+      onClick={handleDrawerClose}
+      onKeyDown={handleDrawerClose}
     >
-      <DrawerHeader>
-        <IconButton onClick={handleDrawerClose}>
-          {theme.direction === "rtl" ? (
-            <ChevronRightIcon />
-          ) : (
-            <ChevronLeftIcon />
-          )}
-        </IconButton>
-      </DrawerHeader>
-      <Divider />
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: "block" }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+        {Routes.map((route, index) => (
+          <ListItem key={route.route} disablePadding>
+            <ListItemButton component={NavLink} to={route.route}>
+              <ListItemIcon>
+                <route.icon />
               </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
+              <ListItemText primary={route.name} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: "block" }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Drawer>
+    </Box>
+  );
+
+  return (
+    <div>
+      <Drawer
+        sx={{ zIndex: 100000 }}
+        anchor={"left"}
+        open={open}
+        onClose={handleDrawerClose}
+      >
+        {list("left")}
+      </Drawer>
+    </div>
   );
 }
 
@@ -123,5 +71,3 @@ type PropsType = {
   //   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   handleDrawerClose: () => void;
 };
-
-export default Sidebar;
