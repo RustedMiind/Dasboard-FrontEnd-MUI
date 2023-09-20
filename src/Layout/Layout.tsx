@@ -58,7 +58,7 @@ function Layout() {
       <Navbar open={open} handleDrawerOpen={handleDrawerOpen} />
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Box className="page-content" id="main">
+        <Box className="page-content" id="main" sx={{ width: "100%" }}>
           <AppRoutes />
         </Box>
       </Box>

@@ -129,6 +129,7 @@ export default function PersonCard({ user, width }: PropsType) {
         ) : (
           <Button
             component={NavLink}
+            color="secondary"
             to={`/users/${isPlaceholder ? <Skeleton /> : user.id}`}
           >
             View Profile

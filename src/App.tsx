@@ -1,6 +1,6 @@
 import "./App.scss";
 import Layout from "./Layout/Layout";
-import { blueGrey, grey, pink } from "@mui/material/colors";
+import * as colors from "@mui/material/colors";
 import { ThemeProvider, createTheme } from "@mui/material";
 
 const theme = createTheme({
@@ -21,11 +21,12 @@ const theme = createTheme({
       main: "#444850",
     },
     secondary: {
-      main: "#967E76",
+      // main: "#967E76",
+      main: colors.deepOrange[500],
     },
     background: {
       paper: "#f3eeeb",
-      default: "#CCCCCC",
+      default: "#DDDDDD",
     },
   },
 });

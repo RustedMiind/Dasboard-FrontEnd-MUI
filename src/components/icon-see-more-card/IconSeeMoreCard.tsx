@@ -13,9 +13,7 @@ import { NavLink } from "react-router-dom";
 
 export default function IconSeeMoreCard(props: PropsType) {
   return (
-    <Card
-      sx={{ display: "inline-block", minWidth: 275, width: props.width || 345 }}
-    >
+    <Card sx={{ display: "inline-block", width: props.width || 345 }}>
       <CardContent sx={{ flexDirection: "row" }}>
         <Grid container>
           <Grid item xs={2}>

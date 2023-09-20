@@ -14,11 +14,11 @@ function EmployeesPage() {
   useEffect(() => {
     handleCardWidth();
     window.addEventListener("resize", handleCardWidth);
-    setTimeout(() => setUsers(data), 1000);
+    setTimeout(() => setUsers(data), 500);
     return () => {
       window.removeEventListener("resize", handleCardWidth);
     };
-  });
+  }, []);
   function handleCardWidth() {
     setCardWidth(itemWidth());
   }

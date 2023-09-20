@@ -45,7 +45,6 @@ function Navbar({ open, handleDrawerOpen }: PropsType) {
         >
           Dashboard
         </Typography>
-        <Typography>Welcome Ali Soliman</Typography>
         <UserAvatar />
       </Toolbar>
     </AppBar>

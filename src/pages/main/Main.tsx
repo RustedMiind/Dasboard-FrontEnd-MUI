@@ -11,16 +11,19 @@ import { useEffect, useState } from "react";
 import fitCardsToWidth from "../../functions/fitCardsToWidth";
 
 function MainPage() {
-  const itemWidth = () => fitCardsToWidth({ defaultWidth: 450 }).itemWidth;
-  const [cardWidth, setCardWidth] = useState(itemWidth());
+  const [cardWidth, setCardWidth] = useState<number>(0);
+
+  const itemWidth = () => fitCardsToWidth({ defaultWidth: 400 }).itemWidth;
+  console.log(itemWidth());
 
   useEffect(() => {
     handleCardWidth();
+    console.log("useEffect Ran");
     window.addEventListener("resize", handleCardWidth);
     return () => {
       window.removeEventListener("resize", handleCardWidth);
     };
-  });
+  }, []);
   function handleCardWidth() {
     setCardWidth(itemWidth());
   }
