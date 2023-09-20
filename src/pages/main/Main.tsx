@@ -1,9 +1,12 @@
 import { Typography, Stack } from "@mui/material";
 import IconSeeMoreCard from "../../components/icon-see-more-card/IconSeeMoreCard";
-import RecentActorsIcon from "@mui/icons-material/RecentActors";
-import WbIncandescentIcon from "@mui/icons-material/WbIncandescent";
-import PersonSearchIcon from "@mui/icons-material/PersonSearch";
 import * as colors from "@mui/material/colors";
+
+// Icons
+import RecentActorsIcon from "@mui/icons-material/RecentActors";
+import HowToRegIcon from "@mui/icons-material/HowToReg";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 function MainPage() {
   return (
@@ -17,56 +20,28 @@ function MainPage() {
           icon={RecentActorsIcon}
           title={"Employees"}
           value="51"
-          redirect="/employee"
+          redirect="/employees"
         />
         <IconSeeMoreCard
           iconColor={colors.blue[800]}
-          icon={PersonSearchIcon}
+          icon={HowToRegIcon}
           title={"Staff present today"}
           value="34"
           redirect="/attendance"
         />
         <IconSeeMoreCard
-          iconColor={colors.pink[300]}
-          icon={RecentActorsIcon}
-          title={"Employees"}
-          value="51"
-          redirect="/employee"
+          iconColor={colors.grey[900]}
+          icon={AccountCircleIcon}
+          title={"Account"}
+          value="Ali Soliman"
+          redirect="/user/account"
         />
         <IconSeeMoreCard
-          iconColor={colors.blue[800]}
-          icon={PersonSearchIcon}
-          title={"Staff present today"}
-          value="34"
-          redirect="/attendance"
-        />
-        <IconSeeMoreCard
-          iconColor={colors.pink[300]}
-          icon={RecentActorsIcon}
-          title={"Employees"}
-          value="51"
-          redirect="/employee"
-        />
-        <IconSeeMoreCard
-          iconColor={colors.blue[800]}
-          icon={PersonSearchIcon}
-          title={"Staff present today"}
-          value="34"
-          redirect="/attendance"
-        />
-        <IconSeeMoreCard
-          iconColor={colors.pink[300]}
-          icon={RecentActorsIcon}
-          title={"Employees"}
-          value="51"
-          redirect="/employee"
-        />
-        <IconSeeMoreCard
-          iconColor={colors.blue[800]}
-          icon={PersonSearchIcon}
-          title={"Staff present today"}
-          value="34"
-          redirect="/attendance"
+          iconColor={colors.purple[500]}
+          icon={AssignmentIcon}
+          title={"Assignments"}
+          value="3"
+          redirect="/assignments"
         />
       </Stack>
     </Stack>

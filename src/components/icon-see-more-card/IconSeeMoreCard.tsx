@@ -9,7 +9,6 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import AccessAlarmIcon from "@mui/icons-material/AccessAlarm";
 import { NavLink } from "react-router-dom";
 
 export default function IconSeeMoreCard(props: PropsType) {
@@ -19,7 +18,14 @@ export default function IconSeeMoreCard(props: PropsType) {
         <Grid container>
           <Grid item xs={2}>
             <Avatar sx={{ backgroundColor: props.iconColor }}>
-              <IconButton size="medium" sx={{ color: "white" }}>
+              <IconButton
+                {...(props.redirect && {
+                  component: NavLink,
+                  to: props.redirect,
+                })}
+                size="medium"
+                sx={{ color: "white" }}
+              >
                 {<props.icon />}
               </IconButton>
             </Avatar>
@@ -44,7 +50,7 @@ export default function IconSeeMoreCard(props: PropsType) {
             component={NavLink}
             to={props.redirect}
           >
-            Learn More
+            View Details
           </Button>
         </CardActions>
       )}
