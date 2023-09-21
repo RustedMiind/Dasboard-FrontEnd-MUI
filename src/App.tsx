@@ -28,6 +28,9 @@ const theme = createTheme({
       paper: "#f3eeeb",
       default: "#DDDDDD",
     },
+    text: {
+      primary: "#444850",
+    },
   },
 });
 

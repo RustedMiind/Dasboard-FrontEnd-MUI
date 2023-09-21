@@ -1,14 +1,24 @@
 import { Stack, Box } from "@mui/material";
 import ProfileImage from "./components/ProfileImage";
 import ProfileInfo from "./components/ProfileInfo";
+import ProfileTable from "./components/ProfileTable";
 
 function ProfilePage() {
   return (
-    <Stack sx={{}}>
-      <Box sx={{ display: "flex" }}>
+    <Stack spacing={2} sx={{ width: "99%" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          alignItems: { xs: "center", md: "start" },
+          flexWrap: "wrap",
+          gap: 2,
+        }}
+      >
         <ProfileImage image={image} />
         <ProfileInfo />
       </Box>
+      <ProfileTable />
     </Stack>
   );
 }
