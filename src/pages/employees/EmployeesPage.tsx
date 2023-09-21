@@ -9,7 +9,7 @@ import EmployeesPlaceholder from "./components/EmployeesPlaceholder";
 function EmployeesPage() {
   const [users, setUsers] = useState<CardUserType[] | null>();
   const itemWidth = () => fitCardsToWidth().itemWidth;
-  const [cardWidth, setCardWidth] = useState(itemWidth());
+  const [cardWidth, setCardWidth] = useState(0);
   const isUsersLoaded = !!users;
   useEffect(() => {
     handleCardWidth();
@@ -20,7 +20,7 @@ function EmployeesPage() {
     };
   }, []);
   function handleCardWidth() {
-    setCardWidth(itemWidth());
+    setCardWidth(fitCardsToWidth().itemWidth);
   }
   return (
     <Stack>

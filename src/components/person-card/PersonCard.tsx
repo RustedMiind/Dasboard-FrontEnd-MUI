@@ -33,7 +33,7 @@ export default function PersonCard({ user, width }: PropsType) {
     setSettingsAnchorEl(null);
   };
   return (
-    <Card sx={{ width: width || 345 }}>
+    <Card sx={{ width: width || 345, transition: "400ms" }}>
       <Box
         sx={{
           display: "flex",
