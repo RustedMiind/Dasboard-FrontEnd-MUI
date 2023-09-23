@@ -11,11 +11,11 @@ function ProfileInfo() {
         <Rating
           size="large"
           sx={{ color: "secondary.light" }}
-          precision={0.5}
+          precision={0.1}
           readOnly
-          value={3.5}
+          value={4.7}
         />
-        <Typography variant="h6">3.5</Typography>
+        <Typography variant="h6">4.7</Typography>
       </Stack>
     </Stack>
   );

@@ -38,8 +38,8 @@ function ProfileTable() {
                 const clockIn = new Date(Date.parse(shift.clockIn)),
                   clockOut = new Date(
                     Date.parse(shift.clockIn) +
-                      Math.floor(Math.random() * (10 - 6 + 1) + 6) *
-                        1000 *
+                      Math.floor(Math.random() * (10000 - 600 + 1) + 600) *
+                        // 1000 *
                         60 *
                         60
                   ),

@@ -21,8 +21,8 @@ const theme = createTheme({
       main: "#444850",
     },
     secondary: {
-      // main: "#967E76",
-      main: colors.deepOrange[500],
+      main: "#DB2777",
+      // main: colors.deepOrange[500],
     },
     background: {
       paper: "#f3eeeb",

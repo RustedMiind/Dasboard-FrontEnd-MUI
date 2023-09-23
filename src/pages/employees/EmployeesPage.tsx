@@ -46,7 +46,7 @@ const data: CardUserType[] = [
   {
     id: 1,
     name: "Ali Soliman",
-    title: "Front End Develoepr",
+    title: "Front End Developer",
     description:
       " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla quasi tempora dolor quam veniam tempore minus, aspernatur inventore aut ab",
     image:
@@ -55,7 +55,7 @@ const data: CardUserType[] = [
   {
     id: 2,
     name: "Ali Soliman",
-    title: "Front End Develoepr",
+    title: "Front End Developer",
     description:
       " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla quasi tempora dolor quam veniam tempore minus, aspernatur inventore aut ab",
     image:
@@ -64,7 +64,7 @@ const data: CardUserType[] = [
   {
     id: 3,
     name: "Ali Soliman",
-    title: "Front End Develoepr",
+    title: "Front End Developer",
     description:
       " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla quasi tempora dolor quam veniam tempore minus, aspernatur inventore aut ab",
     image:
@@ -73,7 +73,7 @@ const data: CardUserType[] = [
   {
     id: 4,
     name: "Ali Soliman",
-    title: "Front End Develoepr",
+    title: "Front End Developer",
     description:
       " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla quasi tempora dolor quam veniam tempore minus, aspernatur inventore aut ab",
     image:
@@ -82,7 +82,7 @@ const data: CardUserType[] = [
   {
     id: 5,
     name: "Ali Soliman",
-    title: "Front End Develoepr",
+    title: "Front End Developer",
     description:
       " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla quasi tempora dolor quam veniam tempore minus, aspernatur inventore aut ab",
     image:
@@ -91,7 +91,7 @@ const data: CardUserType[] = [
   {
     id: 6,
     name: "Ali Soliman",
-    title: "Front End Develoepr",
+    title: "Front End Developer",
     description:
       " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla quasi tempora dolor quam veniam tempore minus, aspernatur inventore aut ab",
     image:

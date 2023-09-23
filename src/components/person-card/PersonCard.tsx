@@ -103,8 +103,22 @@ export default function PersonCard({ user, width }: PropsType) {
             </Menu>
           </>
         }
-        title={isPlaceholder ? <Skeleton /> : user.name}
-        subheader={isPlaceholder ? <Skeleton /> : user.title}
+        title={
+          isPlaceholder ? (
+            <Skeleton />
+          ) : (
+            <Typography variant="h5">{user.name}</Typography>
+          )
+        }
+        subheader={
+          isPlaceholder ? (
+            <Skeleton />
+          ) : (
+            <Typography color={"secondary.main"} variant="body1">
+              {user.title}
+            </Typography>
+          )
+        }
       />
       <CardContent>
         <Typography
