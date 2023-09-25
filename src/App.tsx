@@ -17,20 +17,20 @@ const theme = createTheme({
   //   },
   // },
   palette: {
-    primary: {
-      main: "#444850",
-    },
+    // primary: {
+    //   main: "#0091D5",
+    // },
     secondary: {
-      main: "#DB2777",
+      main: "#EA6A47",
       // main: colors.deepOrange[500],
     },
     background: {
-      paper: "#f3eeeb",
-      default: "#DDDDDD",
+      paper: "#FFFFFF",
+      default: "#F1F1F1",
     },
-    text: {
-      primary: "#444850",
-    },
+    // text: {
+    //   primary: "#444850",
+    // },
   },
 });
 
