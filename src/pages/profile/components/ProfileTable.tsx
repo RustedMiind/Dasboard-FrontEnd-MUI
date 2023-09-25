@@ -14,8 +14,11 @@ import {
   parseTimeAmPm,
   deffInHours,
 } from "../../../functions/parseDate";
+import { sortByDate } from "../../../functions/sortByDate";
 
 function ProfileTable() {
+  const sortedAttendance = sortByDate<AttendanceType>(attendance, "clockIn");
+
   return (
     <Stack display={"block"} sx={{ OverflowX: "scroll" }}>
       <Typography variant="h5" gutterBottom>
@@ -34,7 +37,7 @@ function ProfileTable() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {attendance.map((shift) => {
+              {sortedAttendance.map((shift) => {
                 const clockIn = new Date(Date.parse(shift.clockIn)),
                   clockOut = new Date(
                     Date.parse(shift.clockIn) +
@@ -67,14 +70,14 @@ function ProfileTable() {
     </Stack>
   );
 }
-
-const attendance: {
+type AttendanceType = {
   _id: string;
   checked: boolean;
   clockIn: string;
   clockOut: string;
   isRemote: boolean;
-}[] = [
+};
+const attendance: AttendanceType[] = [
   {
     _id: "650cbbe48432ec600b34c1eb",
     checked: true,
